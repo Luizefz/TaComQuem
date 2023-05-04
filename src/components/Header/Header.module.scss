@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
+
+    &__logo {
+        height: 5rem;
+    }
+
+    &__profilePic {
+        width: 46px;
+        height: 46px;
+        border-radius: 50px;
+    }
+}
