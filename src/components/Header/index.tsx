@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Header.module.scss'
 import Logo from '../../img/TCQ-logo.png'
-import DefaultProfilePic from '../../img/profile-pic.jpg'
+import DefaultProfilePic from '../../img/profile-pic.webp'
 import { IUserCredentials } from '../../shared/Interfaces/IUserCredentials'
 
 function Header({ urlProfilePic }: IUserCredentials) {

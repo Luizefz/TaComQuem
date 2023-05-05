@@ -5,7 +5,9 @@
     padding: 2rem 2rem;
 
     &__logo {
+        width: calc(5rem * (1/1)); //Calc the aspect ration exemple
         height: 5rem;
+        object-fit: contain;
     }
 
     &__profilePic {

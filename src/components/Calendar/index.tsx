@@ -38,6 +38,10 @@ function Calendar() {
                             monthDay={day.monthDay}
                         />
                     )}
+                    <CalendarDay
+                        DOTWeek={'Zeaam'}
+                        monthDay={34}
+                    />
                 </motion.li>
             </motion.ul>
         </div >
