@@ -6,6 +6,7 @@ export interface ICalendar {
 export interface IMonthDays {
     id: number,
     date: Date,
+    toDay?: Date,
     DOTWeek?: number,
     shortDOTWeek?: string,
 

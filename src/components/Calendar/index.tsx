@@ -21,6 +21,8 @@ function Calendar({ month, year }: ICalendar) {
 
     let monthDays: IMonthDays[] = getDaysInMonth(month, year);
 
+    let toDay = new Date()
+
     return (
         <div className={styles.container}>
 
@@ -40,6 +42,7 @@ function Calendar({ month, year }: ICalendar) {
                             key={day.id}
                             id={day.id}
                             date={day.date}
+                            toDay={toDay}
                             DOTWeek={day.DOTWeek}
                         />
                     )}
