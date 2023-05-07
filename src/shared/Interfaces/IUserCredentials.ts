@@ -1,3 +1,3 @@
 export interface IUserCredentials {
-    urlProfilePic?: string
+    profilePic?: string
 }

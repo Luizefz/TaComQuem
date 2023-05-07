@@ -9,7 +9,7 @@ function Home() {
 
     return (
         <div>
-            <Calendar />
+            <Calendar month={4} year={2023} />
         </div>
     )
 }
