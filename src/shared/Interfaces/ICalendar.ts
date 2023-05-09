@@ -1,6 +1,7 @@
 export interface ICalendar {
     month: number,
-    year: number
+    year: number,
+    scrollPosition?: number
 }
 
 export interface IMonthDays {
@@ -9,5 +10,5 @@ export interface IMonthDays {
     toDay?: Date,
     DOTWeek?: number,
     shortDOTWeek?: string,
-
+    scrollPosition?: any
 }

@@ -1,9 +1,8 @@
 import React from 'react'
-import { IMonthDays } from '../../shared/Interfaces/ICalendar';
+import { ICalendar } from '../../shared/Interfaces/ICalendar';
 
-function CalendarMonth({ date }: IMonthDays) {
+function CalendarMonth({ month = 0 }: Partial<ICalendar>) {
 
-    let month = date.getMonth()
     let months = [
         "Janeiro",
         "Fevereiro",
