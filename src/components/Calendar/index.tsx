@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import styles from './Calendar.module.scss'
 import CalendarDay from '../CalendarDay'
 import CalendarMonth from '../CalendarMonth';
-import { motion, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import { ICalendar, IMonthDays } from '../../shared/Interfaces/ICalendar';
 
 function Calendar({ month, year }: ICalendar) {
@@ -11,7 +11,6 @@ function Calendar({ month, year }: ICalendar) {
     const [monthDays, setMonthDays] = useState<IMonthDays[]>([]);
     const [toDay] = useState(new Date())
     const [scrollDrag, setscrollDrag] = useState<number>(0);
-    const dragPosition = useMotionValue(0);
 
     const scrollXPosition = (scrollPosition: any) => {
         setscrollDrag(scrollPosition * -62);
@@ -29,8 +28,7 @@ function Calendar({ month, year }: ICalendar) {
 
     useEffect(() => {
         setMonthDays(getDaysInMonth(month, year))
-        dragPosition.set(scrollDrag)
-    }, [month, year, dragPosition, scrollDrag])
+    }, [month, year])
 
     return (
         <div className={styles.container}>
@@ -41,9 +39,10 @@ function Calendar({ month, year }: ICalendar) {
             >
                 <motion.li
                     className={styles.container__calendar_days}
-                    style={{ x: scrollDrag }}
                     drag="x"
                     dragConstraints={constraintsRef}
+                    animate={{ x: scrollDrag }}
+                    transition={{ type: 'spring', duration: 1.5 }}
                 >
                     {monthDays.map(day =>
                         <CalendarDay
@@ -52,7 +51,7 @@ function Calendar({ month, year }: ICalendar) {
                             date={day.date}
                             toDay={toDay}
                             DOTWeek={day.DOTWeek}
-                            scrollPosition={scrollXPosition}
+                            indexDayValue={scrollXPosition}
                         />
                     )}
                 </motion.li>

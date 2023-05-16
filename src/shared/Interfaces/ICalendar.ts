@@ -10,5 +10,5 @@ export interface IMonthDays {
     toDay?: Date,
     DOTWeek?: number,
     shortDOTWeek?: string,
-    scrollPosition?: any
+    indexDayValue?: any
 }
