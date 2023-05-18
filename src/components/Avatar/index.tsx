@@ -14,8 +14,9 @@ function Avatar({ profilePic }: IUserCredentials) {
             alt="Imagem de Perfil"
             className={styles.avatar_pic} src={AvatarPic}
             draggable='false'
-            whileHover={{ border: '5px solid #AF6538' }}
-            transition={{ type: "spring", stiffness: 500, damping: 80 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
 
         />
     )

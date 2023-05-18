@@ -42,7 +42,7 @@ function Calendar({ month, year }: ICalendar) {
                     drag="x"
                     dragConstraints={constraintsRef}
                     animate={{ x: scrollDrag }}
-                    transition={{ type: 'spring', duration: 1.5 }}
+                    transition={{ type: 'spring', delay: 0.5, duration: 2, stiffness: 75, damping: 20 }}
                 >
                     {monthDays.map(day =>
                         <CalendarDay
