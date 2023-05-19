@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1.2rem;
+    overflow-y: hidden;
+    height: 100%;
+    mask-image: linear-gradient(to botom, transparent 0%, black 32px, black calc(100% - 32px), transparent 100%);
+    gap: 1.2rem;
+
+    &__card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.4rem 1rem;
+        height: 5rem;
+        border-radius: 8px;
+        background-color: var(--grey);
+
+        &_item_info {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        &_item_name {
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            white-space: nowrap;
+
+            h1 {
+                max-width: calc(100vw - 10rem);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 20px;
+            }
+        }
+
+        &_item_location {
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            opacity: 0.6;
+
+            p {
+                max-width: calc(100vw - 10rem);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 16px;
+            }
+        }
+
+        &_item_timestamp {
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            opacity: 0.6;
+        }
+    }
+}
