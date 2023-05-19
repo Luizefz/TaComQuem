@@ -8,7 +8,7 @@ function Header() {
     return (
         <div className={styles.header}>
             <img className={styles.header__logo} src={Logo} alt="Tá com quem?" draggable='false' />
-            <Avatar profilePic='' />
+            <Avatar />
         </div>
     )
 }

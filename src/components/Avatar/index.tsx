@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 function Avatar({ profilePic }: IUserCredentials) {
 
-    const AvatarPic: string = profilePic || DefaultAvatarPic
+    const AvatarPic: string = profilePic || DefaultAvatarPic;
 
     return (
         <motion.img

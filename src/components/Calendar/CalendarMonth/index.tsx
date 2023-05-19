@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { ICalendar } from '../../shared/Interfaces/ICalendar';
-import styles from '../Calendar/Calendar.module.scss';
+import { ICalendar } from '../../../shared/Interfaces/ICalendar';
+import styles from '../Calendar.module.scss';
 
-function CalendarMonth({ month = 0 }: Partial<ICalendar>) {
+function CalendarMonth({ monthIndex = 0 }: Partial<ICalendar>) {
 
     let months = [
         "Janeiro",
@@ -19,7 +19,7 @@ function CalendarMonth({ month = 0 }: Partial<ICalendar>) {
         "Dezembro"
     ];
 
-    const [monthSelector, setMonthSelector] = useState('' || months[month])
+    const [monthSelector, setMonthSelector] = useState(months[monthIndex])
 
     return (
         <select
@@ -27,8 +27,8 @@ function CalendarMonth({ month = 0 }: Partial<ICalendar>) {
             value={monthSelector}
             onChange={e => setMonthSelector(e.target.value)}
         >
-            {months.map(monthOTY =>
-                <option value={monthOTY}>{monthOTY}</option>
+            {months.map(month =>
+                <option key={month} value={month}>{month}</option>
             )}
         </select>
     )

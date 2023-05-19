@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import styles from './CalendarDay.module.scss'
+import styles from '../Calendar.module.scss'
 import { motion } from "framer-motion";
-import { IMonthDays } from '../../shared/Interfaces/ICalendar';
+import { IMonthDays } from '../../../shared/Interfaces/ICalendar';
 
-function CalendarDay({ id, date, toDay, indexDayValue, DOTWeek = 0 }: IMonthDays) {
+function CalendarDay({ id, date, toDay, updateScrollPosition, DOTWeek = 0 }: IMonthDays) {
 
     const [isSelected, setIsSelected] = useState(false);
     let day = date.getDate();
@@ -17,24 +17,17 @@ function CalendarDay({ id, date, toDay, indexDayValue, DOTWeek = 0 }: IMonthDays
         'Sab'
     ];
 
-    const scrollIndex = () => {
-        if (id >= 26) {
-            return 26;
-        }
-        return id
-    };
-
     function isToDay() {
         if (date.getDate() === toDay?.getDate()) {
             let isToDay = true
-            indexDayValue(scrollIndex())
+            updateScrollPosition(id)
             return isToDay
         }
     }
 
     return (
         <motion.button
-            className={styles.calendar_day_button}
+            className={styles.container__calendar_days_button}
             onClick={() => setIsSelected(!isSelected)}
             style={{ backgroundColor: isSelected ? '#AF6538' : isToDay() ? '#1E1E1E' : '' }}
             whileHover={{ scale: 1.1, border: 'solid 1px #AF6538' }}

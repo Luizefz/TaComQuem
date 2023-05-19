@@ -1,13 +1,11 @@
 import React from 'react'
-import Calendar from '../../components/Calendar'
-import CardList from '../../components/CardList'
-import Card from '../../components/CardList/Card'
+import Calendar from '../components/Calendar'
+import CardList from '../components/CardList'
+import Card from '../components/CardList/Card'
+import Header from '../components/Header'
 
 function Home() {
 
-    // useEffect(() => {
-    //     document.title = "Ta com quem?"
-    // }, [])
     let data = [
         {
             'id': 0,
@@ -48,11 +46,13 @@ function Home() {
     ]
     return (
         <div>
-            <Calendar month={4} year={2023} />
+            <Header />
+
+            <Calendar monthIndex={4} year={2023} />
 
             <CardList>
                 {data.map(cardItem =>
-                    <Card item={cardItem} />
+                    <Card key={cardItem.id} item={cardItem} />
                 )}
             </CardList>
         </div>

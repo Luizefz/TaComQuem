@@ -1,5 +1,5 @@
 export interface ICalendar {
-    month: number,
+    monthIndex: number,
     year: number,
     scrollPosition?: number
 }
@@ -10,5 +10,5 @@ export interface IMonthDays {
     toDay?: Date,
     DOTWeek?: number,
     shortDOTWeek?: string,
-    indexDayValue?: any
+    updateScrollPosition?: any
 }

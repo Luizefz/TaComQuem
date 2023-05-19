@@ -1,25 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './Calendar.module.scss'
-import CalendarDay from '../CalendarDay'
-import CalendarMonth from '../CalendarMonth';
+import CalendarDay from './CalendarDay'
+import CalendarMonth from './CalendarMonth';
 import { motion } from "framer-motion";
 import { ICalendar, IMonthDays } from '../../shared/Interfaces/ICalendar';
 
-function Calendar({ month, year }: ICalendar) {
+function Calendar({ monthIndex, year }: ICalendar) {
 
     const constraintsRef = useRef(null);
     const [monthDays, setMonthDays] = useState<IMonthDays[]>([]);
     const [toDay] = useState(new Date())
-    const [scrollDrag, setscrollDrag] = useState<number>(0);
+    const [scrollDrag, setscrollDrag] = useState(0);
 
-    const scrollXPosition = (scrollPosition: any) => {
+    const scrollXPosition = (scrollPosition: number) => {
+        if (scrollPosition >= 26) {
+            return setscrollDrag(26 * -62);
+        }
         setscrollDrag(scrollPosition * -62);
     };
 
-    const getDaysInMonth = (month: number, year: number) => {
-        let date = new Date(year, month, 1);
+    const getDaysInMonth = ({ monthIndex, year }: ICalendar) => {
+        let date = new Date(year, monthIndex, 1);
         let days = [];
-        while (date.getMonth() === month) {
+        while (date.getMonth() === monthIndex) {
             days.push({ id: days.length, date: new Date(date), DOTWeek: date.getDay() });
             date.setDate(date.getDate() + 1);
         }
@@ -27,12 +30,12 @@ function Calendar({ month, year }: ICalendar) {
     };
 
     useEffect(() => {
-        setMonthDays(getDaysInMonth(month, year))
-    }, [month, year])
+        setMonthDays(getDaysInMonth({ monthIndex, year }));
+    }, [monthIndex, year])
 
     return (
         <div className={styles.container}>
-            <CalendarMonth month={month} />
+            <CalendarMonth monthIndex={monthIndex} />
             <motion.ul
                 className={styles.container__calendar_list}
                 ref={constraintsRef}
@@ -51,7 +54,7 @@ function Calendar({ month, year }: ICalendar) {
                             date={day.date}
                             toDay={toDay}
                             DOTWeek={day.DOTWeek}
-                            indexDayValue={scrollXPosition}
+                            updateScrollPosition={scrollXPosition}
                         />
                     )}
                 </motion.li>

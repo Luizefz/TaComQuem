@@ -30,5 +30,27 @@
         padding: 0 1.5rem;
         display: flex;
         gap: .6rem;
+
+        &_button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 3.3rem;
+            height: 4rem;
+            gap: .3rem;
+
+            background-color: var(--black);
+            border: none;
+            border-radius: 8px;
+            font-size: large;
+            overflow: hidden;
+            cursor: pointer;
+
+            h2 {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
 }
