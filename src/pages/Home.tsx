@@ -51,8 +51,8 @@ function Home() {
             <Calendar monthIndex={4} year={2023} />
 
             <CardList>
-                {data.map(cardItem =>
-                    <Card key={cardItem.id} item={cardItem} />
+                {data.map((cardItem, i) =>
+                    <Card key={cardItem.id} item={cardItem} i={i} />
                 )}
             </CardList>
         </div>

@@ -1,11 +1,16 @@
 import React from 'react'
 import styles from '../CardList.module.scss'
 import { FiClock, FiHash, FiMapPin, FiUser } from "react-icons/fi";
+import { motion } from 'framer-motion';
 
-function Card({ item }: any) {
+function Card({ item, i }: any) {
 
     return (
-        <div className={styles.container__card}>
+        <motion.div className={styles.container__card}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.2 + 1 }}
+        >
             <div className={styles.container__card_item_info}>
                 <div className={styles.container__card_item_name}>
                     <FiHash size={18} aria-label='Item' />
@@ -29,7 +34,7 @@ function Card({ item }: any) {
                 <FiClock aria-label='Visto por último' />
                 <p>{item.timestamp}</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

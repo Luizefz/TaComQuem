@@ -16,7 +16,6 @@ function CardList({ children }: { children: React.ReactNode }) {
                     drag="y"
                     dragConstraints={constraintsRef}
                     style={{ paddingTop: 4, paddingBottom: 4 }}
-                    transition={{ type: 'spring', delay: 0.5, duration: 2, stiffness: 75, damping: 20 }}
                 >
                     {children}
                 </motion.li>
