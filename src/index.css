@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
 :root {
+
   --black: #070403;
   --grey: #1E1E1E;
   --orange: #AF6538;
   --white: #FFFFFF;
 
   background-color: var(--black);
+  max-width: 840px;
+  margin: 0 auto;
 }
 
 html, body, div, span, applet, object, iframe,

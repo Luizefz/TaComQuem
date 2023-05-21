@@ -13,6 +13,7 @@
         height: 6rem;
         border-radius: 8px;
         background-color: var(--grey);
+        cursor: pointer;
 
         &_item_info {
             display: flex;
@@ -39,6 +40,7 @@
             align-items: center;
             gap: .3rem;
             opacity: 0.6;
+            white-space: nowrap;
 
             p {
                 max-width: calc(100vw - 10rem);
