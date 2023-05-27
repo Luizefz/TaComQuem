@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styles from '../Calendar.module.scss'
 import { motion } from "framer-motion";
 import { IMonthDays } from '../../../shared/Interfaces/ICalendar';
+import { CalendarContext } from '../../../common/context/Calendar';
 
-function CalendarDay({ id, date, toDay, updateScrollPosition, DOTWeek = 0 }: IMonthDays) {
+function CalendarDay({ id, date, toDay, DOTWeek = 0 }: IMonthDays) {
 
     const [isSelected, setIsSelected] = useState(false);
+    const { scrollXPosition } = useContext(CalendarContext)
+
     let day = date.getDate();
     let shortDOTWeek = [
         'Dom',
@@ -19,8 +22,8 @@ function CalendarDay({ id, date, toDay, updateScrollPosition, DOTWeek = 0 }: IMo
 
     function isToDay() {
         const isToday = date.toLocaleDateString() === toDay?.toLocaleDateString();
-        if (isToday && updateScrollPosition) {
-            updateScrollPosition(id);
+        if (isToday) {
+            scrollXPosition(id);
         }
         return isToday;
     }

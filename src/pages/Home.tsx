@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Calendar from '../components/Calendar'
 import CardList from '../components/CardList'
 import Card from '../components/CardList/Card'
@@ -49,7 +49,7 @@ function Home() {
         <div>
             <Header />
 
-            <Calendar monthIndex={4} year={2023} />
+            <Calendar />
 
             <CardList>
                 {data.map((cardItem, i) =>

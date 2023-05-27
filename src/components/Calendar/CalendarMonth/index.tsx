@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import { ICalendar } from '../../../shared/Interfaces/ICalendar';
+import React, { useContext } from 'react'
 import styles from '../Calendar.module.scss';
+import { CalendarContext } from '../../../common/context/Calendar';
 
-function CalendarMonth({ monthIndex = 0 }: Partial<ICalendar>) {
+function CalendarMonth() {
+
+    const { monthIndex, setMonthIndex } = useContext(CalendarContext)
 
     let months = [
         "Janeiro",
@@ -19,16 +21,14 @@ function CalendarMonth({ monthIndex = 0 }: Partial<ICalendar>) {
         "Dezembro"
     ];
 
-    const [monthSelector, setMonthSelector] = useState(months[monthIndex])
-
     return (
         <select
             className={styles.container__calendar_month}
-            value={monthSelector}
-            onChange={e => setMonthSelector(e.target.value)}
+            value={monthIndex}
+            onChange={e => setMonthIndex(+e.target.value)}
         >
-            {months.map(month =>
-                <option key={month} value={month}>{month}</option>
+            {months.map((month, i) =>
+                <option key={month} value={i}>{month}</option>
             )}
         </select>
     )
