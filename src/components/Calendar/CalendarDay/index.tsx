@@ -18,11 +18,11 @@ function CalendarDay({ id, date, toDay, updateScrollPosition, DOTWeek = 0 }: IMo
     ];
 
     function isToDay() {
-        if (date.getDate() === toDay?.getDate()) {
-            let isToDay = true
-            updateScrollPosition(id)
-            return isToDay
+        const isToday = date.toLocaleDateString() === toDay?.toLocaleDateString();
+        if (isToday && updateScrollPosition) {
+            updateScrollPosition(id);
         }
+        return isToday;
     }
 
     return (

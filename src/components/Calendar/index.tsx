@@ -1,33 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import styles from './Calendar.module.scss'
 import CalendarDay from './CalendarDay'
 import CalendarMonth from './CalendarMonth';
 import { motion } from "framer-motion";
 import { ICalendar, IMonthDays } from '../../shared/Interfaces/ICalendar';
+import { CalendarContext } from '../../common/context/Calendar';
+
 
 function Calendar({ monthIndex, year }: ICalendar) {
 
+    const { monthDays, setMonthDays, toDay, getDaysInMonth, scrollXPosition, scrollDrag } = useContext(CalendarContext);
     const constraintsRef = useRef(null);
-    const [monthDays, setMonthDays] = useState<IMonthDays[]>([]);
-    const [toDay] = useState(new Date())
-    const [scrollDrag, setscrollDrag] = useState(0);
-
-    const scrollXPosition = (scrollPosition: number) => {
-        if (scrollPosition >= 26) {
-            return setscrollDrag(26 * -62);
-        }
-        setscrollDrag(scrollPosition * -62);
-    };
-
-    const getDaysInMonth = ({ monthIndex, year }: ICalendar) => {
-        let date = new Date(year, monthIndex, 1);
-        let days = [];
-        while (date.getMonth() === monthIndex) {
-            days.push({ id: days.length, date: new Date(date), DOTWeek: date.getDay() });
-            date.setDate(date.getDate() + 1);
-        }
-        return days;
-    };
 
     useEffect(() => {
         setMonthDays(getDaysInMonth({ monthIndex, year }));
@@ -47,7 +30,7 @@ function Calendar({ monthIndex, year }: ICalendar) {
                     animate={{ x: scrollDrag }}
                     transition={{ type: 'spring', delay: 0.5, duration: 1, stiffness: 75, damping: 20 }}
                 >
-                    {monthDays.map(day =>
+                    {monthDays.map((day: IMonthDays) =>
                         <CalendarDay
                             key={day.id}
                             id={day.id}

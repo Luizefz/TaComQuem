@@ -2,8 +2,9 @@ import React from 'react'
 import styles from '../CardList.module.scss'
 import { FiClock, FiHash, FiMapPin, FiUser } from "react-icons/fi";
 import { motion } from 'framer-motion';
+import { ICards } from '../../../shared/Interfaces/ICards';
 
-function Card({ item, i }: any) {
+function Card({ item, i = 0 }: ICards) {
 
     return (
         <motion.div className={styles.container__card}
