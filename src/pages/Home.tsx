@@ -3,6 +3,7 @@ import Calendar from '../components/Calendar'
 import CardList from '../components/CardList'
 import Card from '../components/CardList/Card'
 import Header from '../components/Header'
+import BottomAction from '../components/BottomAction'
 
 function Home() {
 
@@ -55,6 +56,7 @@ function Home() {
                     <Card key={cardItem.id} item={cardItem} i={i} />
                 )}
             </CardList>
+            <BottomAction />
         </div>
     )
 }

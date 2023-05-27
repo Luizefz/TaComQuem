@@ -1,8 +1,12 @@
 .container {
-    margin: 0 .6rem;
-    overflow-y: hidden;
-    height: calc(100vh - 22rem);
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.2rem;
+    overflow: hidden;
+    min-height: 17rem;
+    height: calc(60vh - 4rem);
     mask-image: linear-gradient(to top, transparent 0%, black 32px, black calc(100% - 32px), transparent 100%);
+    cursor: grab;
 
     &__card {
         display: flex;

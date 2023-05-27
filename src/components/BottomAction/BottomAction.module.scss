@@ -1,0 +1,11 @@
+.container {
+    position: fixed;
+    bottom: 0;
+    height: 4rem;
+    width: 100%;
+    max-width: 840px;
+
+    &__content {
+        padding: 0 1rem;
+    }
+}

@@ -7,7 +7,7 @@ function CardList({ children }: { children: React.ReactNode }) {
     const constraintsRef = useRef(null);
 
     return (
-        <section className={styles.container}>
+        <section>
             <motion.ul
                 className={styles.container}
                 ref={constraintsRef}
