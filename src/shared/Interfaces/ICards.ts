@@ -1,13 +1,13 @@
 export interface ICards {
     item: {
-        id: number;
-        name: string;
+        id: number,
+        name: string,
         location: {
-            returned: boolean;
-            place: null | string;
-            holder: string;
+            returned: boolean,
+            place: null | string,
+            holder: string,
         };
-        timestamp: string;
+        datetime: string,
     },
     i?: number
 }

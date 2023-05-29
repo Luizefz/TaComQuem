@@ -8,7 +8,7 @@ export const CalendarProvider = ({ children }: { children: React.ReactNode }) =>
     const [monthDays, setMonthDays] = useState<IMonthDays[]>([]);
     const [toDay] = useState(new Date())
     const [scrollDrag, setScrollDrag] = useState(0);
-    const [monthIndex, setMonthIndex] = useState(0);
+    const [monthIndex, setMonthIndex] = useState(toDay.getMonth());
     const year = toDay.getFullYear();
 
     const getDaysInMonth = ({ monthIndex, year }: ICalendar) => {
@@ -22,11 +22,15 @@ export const CalendarProvider = ({ children }: { children: React.ReactNode }) =>
     };
 
     const scrollXPosition = (scrollPosition: number) => {
-        if (scrollPosition >= 26) {
-            return setScrollDrag(26 * -62);
-        }
-        return setScrollDrag(scrollPosition * -62);
-
+        (scrollPosition >= 26) ? (
+            setTimeout(() => {
+                return setScrollDrag(26 * -61.5);
+            }, 800)
+        ) : (
+            setTimeout(() => {
+                return setScrollDrag(scrollPosition * -62);
+            }, 800)
+        )
     };
 
     return (

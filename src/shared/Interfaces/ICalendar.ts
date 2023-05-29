@@ -10,7 +10,7 @@ export interface ICalendarContext {
     toDay: Date,
     getDaysInMonth: ({ monthIndex, year }: ICalendar) => IMonthDays[],
     scrollXPosition: (scrollPosition: number) => (void),
-    scrollDrag?: any,
+    scrollDrag?: number,
     monthIndex: number,
     setMonthIndex: (monthIndex: number) => (void)
     year: number,

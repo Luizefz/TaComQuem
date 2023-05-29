@@ -12,39 +12,50 @@ function Home() {
             'id': 0,
             'name': 'Molho de chaves',
             'location': { 'returned': false, 'place': null, 'holder': 'Luiz Eduardo' },
-            'timestamp': '09:00'
+            'datetime': 'Tue Jan 24 2023 08:02:00 GMT-0300 (Horário Padrão de Brasília)'
         },
         {
             'id': 1,
             'name': 'Extensão elétrica',
             'location': { 'returned': true, 'place': 'Sala 506', 'holder': 'José Arnaldo' },
-            'timestamp': '09:27'
+            'datetime': 'Tue Jan 24 2023 11:20:00 GMT-0300 (Horário Padrão de Brasília)'
         },
         {
             'id': 2,
             'name': 'Adaptador de tomada',
             'location': { 'returned': true, 'place': 'Administração', 'holder': 'Davi Souza' },
-            'timestamp': '08:07'
+            'datetime': 'Tue Jan 24 2023 06:03:00 GMT-0300 (Horário Padrão de Brasília)'
         },
         {
             'id': 3,
             'name': 'Chaves de fenda',
             'location': { 'returned': false, 'place': null, 'holder': 'Lúcio Mauro' },
-            'timestamp': '08:00'
+            'datetime': 'Tue Jan 24 2023 10:01:00 GMT-0300 (Horário Padrão de Brasília)'
         },
         {
             'id': 4,
             'name': 'Chaves de fenda',
             'location': { 'returned': false, 'place': null, 'holder': 'Lúcio Mauro' },
-            'timestamp': '08:00'
+            'datetime': 'Tue Jan 24 2023 09:02:00 GMT-0300 (Horário Padrão de Brasília)'
         },
         {
             'id': 5,
             'name': 'Chaves de fenda',
             'location': { 'returned': false, 'place': null, 'holder': 'Lúcio Mauro' },
-            'timestamp': '08:00'
+            'datetime': 'Tue Jan 24 2023 08:00:00 GMT-0300 (Horário Padrão de Brasília)'
         }
-    ]
+    ];
+
+    data.sort((a, b) => {
+        if (a.datetime > b.datetime) {
+            return -1;
+        }
+        if (b.datetime < a.datetime) {
+            return 1;
+        }
+        return 0
+    });
+
     return (
         <div>
             <Header />

@@ -15,6 +15,7 @@ function Calendar() {
     useEffect(() => {
         setMonthDays(getDaysInMonth({ monthIndex, year }));
         scrollXPosition(0);
+        // eslint-disable-next-line
     }, [monthIndex, year])
 
     return (
@@ -29,7 +30,7 @@ function Calendar() {
                     drag="x"
                     dragConstraints={constraintsRef}
                     animate={{ x: scrollDrag, opacity: [0, 1] }}
-                    transition={{ type: 'spring', delay: 0.5, duration: 1, stiffness: 75, damping: 20 }}
+                    transition={{ type: 'spring', duration: 1, stiffness: 75, damping: 20 }}
                 >
                     {monthDays.map((day: IMonthDays) =>
                         <CalendarDay

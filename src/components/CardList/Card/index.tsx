@@ -6,6 +6,11 @@ import { ICards } from '../../../shared/Interfaces/ICards';
 
 function Card({ item, i = 0 }: ICards) {
 
+    function getTimeStamp() {
+        let timestamp = new Date(item.datetime);
+        return timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
     return (
         <motion.div className={styles.container__card}
             initial={{ opacity: 0, y: 20 }}
@@ -33,7 +38,7 @@ function Card({ item, i = 0 }: ICards) {
             </div>
             <div className={styles.container__card_item_timestamp}>
                 <FiClock aria-label='Visto por último' />
-                <p>{item.timestamp}</p>
+                <p>{getTimeStamp()}</p>
             </div>
         </motion.div>
     )
