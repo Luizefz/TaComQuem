@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react'
 import { ICalendar, ICalendarContext, IMonthDays } from '../../shared/Interfaces/ICalendar';
-//@ts-ignore
-export const CalendarContext = createContext<ICalendarContext>();
+
+export const CalendarContext = createContext({} as ICalendarContext);
 CalendarContext.displayName = "Calendar";
 
 export const CalendarProvider = ({ children }: { children: React.ReactNode }) => {

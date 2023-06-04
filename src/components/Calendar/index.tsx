@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import styles from './Calendar.module.scss'
 import CalendarDay from './CalendarDay'
 import CalendarMonth from './CalendarMonth';
@@ -15,7 +15,6 @@ function Calendar() {
     useEffect(() => {
         setMonthDays(getDaysInMonth({ monthIndex, year }));
         scrollXPosition(0);
-        // eslint-disable-next-line
     }, [monthIndex, year])
 
     return (
