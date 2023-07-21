@@ -3,8 +3,7 @@
     flex-direction: column;
     padding: 0 1.2rem;
     overflow: hidden;
-    min-height: 17rem;
-    height: calc(60vh - 4rem);
+    height: calc(65dvh - 6rem);
     mask-image: linear-gradient(to top, transparent 0%, black 32px, black calc(100% - 32px), transparent 100%);
     cursor: grab;
 
@@ -32,7 +31,8 @@
             white-space: nowrap;
 
             h1 {
-                max-width: calc(100vw - 10rem);
+                max-width: 650px;
+                width: 50vw;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 font-size: 20px;

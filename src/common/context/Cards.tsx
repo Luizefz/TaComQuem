@@ -44,7 +44,7 @@ export const CardsProvider = ({ children }: { children: React.ReactNode }) => {
         },
         {
             'id': 6,
-            'name': 'A chave do sucesso é a persistência',
+            'name': 'lore ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
             'location': { 'returned': false, 'place': null, 'holder': 'Lúcio Mauro' },
             'datetime': 'Sun Jun 04 2023 00:00:00 GMT-0300 (Horário Padrão de Brasília)'
         }
